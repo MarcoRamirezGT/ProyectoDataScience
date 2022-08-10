@@ -1,10 +1,15 @@
 
-
-library(readxl)
-DatosCrudos <- read_excel("DatosCrudos.xlsx")
-data<-data.frame(DatosCrudos)
-View(data)
-write.csv(data,"DatosCrudos.csv", row.names = FALSE)
-
+#Clean Telefono
 db<-read.csv('DatosCrudos.csv')
 View(db)
+
+db[nchar(db$TELEFONO)<8]<-NA
+# nchar(db$TELEFONO)<8]<-NA
+
+
+db$TELEFONO<-gsub("-","",as.character(db$TELEFONO))
+View(db$TELEFONO)
+
+db$TELEFONO<-ifelse(nchar(db$TELEFONO)<8,NA,substr(db$TELEFONO, 1, 8))
+
+
