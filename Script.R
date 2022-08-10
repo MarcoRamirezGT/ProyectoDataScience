@@ -4,7 +4,6 @@ db<-read.csv('DatosCrudos.csv')
 View(db)
 
 db[nchar(db$TELEFONO)<8]<-NA
-# nchar(db$TELEFONO)<8]<-NA
 
 
 db$TELEFONO<-gsub("-","",as.character(db$TELEFONO))
