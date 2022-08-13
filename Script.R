@@ -7,7 +7,7 @@ db[nchar(db$TELEFONO)<8]<-NA
 
 
 db$TELEFONO<-gsub("-","",as.character(db$TELEFONO))
-View(db$TELEFONO)
+
 
 db$TELEFONO<-ifelse(nchar(db$TELEFONO)<8,NA,substr(db$TELEFONO, 1, 8))
 

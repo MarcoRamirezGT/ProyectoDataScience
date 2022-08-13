@@ -1,0 +1,41 @@
+---
+title: "Proyecto 1"
+author: "Marco Ramirez, Estuardo Hernandez, Alfredo Quezada"
+date: "2022-08-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Proyecto 1
+
+Para la elaboracion de este proyecto fue necesario descargar los datos de los establecimientos educativos de todo el pais, especificamente de los centros que lleguen a nivel diversificado. Proporcionados por mineduc (https://www.mineduc.gob.gt/BUSCAESTABLECIMIENTO_GE/)
+Donde compilamos todos los centros para generar un CSV con los datos crudos.
+
+```{r}
+db<-read.csv('DatosCrudos.csv')
+head(db)
+
+
+```
+El cual cuenta con `r nrow(db)` filas y `r ncol(db)` columnas, las cuales son detalladas en el code book, ubicado en el repositorio.
+
+### Limpieza de datos
+
+El primer dato a limpiar fue la columna telefono, la particuluridad que tenia esta columna es que muchos centros educativos habian ingresado el numero de telefono de manera incorrecta por ello lo que se realizo fue lo siguiente:
+* Verificar que todos los numeros sean de 8 digitos
+* Eliminar guiones y/o espacios entre los numeros
+* Dejar un solo numero telefonico de 8 digitos
+* Verificar que sean numeros
+
+```{r}
+db$TELEFONO<-gsub("-","",as.character(db$TELEFONO))
+
+
+db$TELEFONO<-ifelse(nchar(db$TELEFONO)<8,NA,substr(db$TELEFONO, 1, 8))
+
+```
+
+Tras realizar lo anterior los datos de telefono han sido limpiados.
