@@ -57,7 +57,15 @@ Cada conjunto de datos contenian las siguientes variables:
 
 12. AREA: En esta varable se encuentra listado a que area pertenece el centro educativo, el cual puede ser: "RURAL" o "URBANO"
 
+13. STATUS: En esta variable se encuentra en el estado en el que se encuentra el centro eductivo, el cual puede ser "CERRADO TEMPORALMENTE", "ABIERTO" O "TEMPORALMENTE TITULOS"
 
+14. MODALIDAD: En esta variable se encuentra establecido que tipo de modalidad maneja el centro educativo, puede ser ya sea "MONOLINGUE" o "BILINGUE".
+
+15. JORNADA En la variable se enceuntra listado que jornadas manena el centro educativo, dentro de estas variables se encuentra: "DOBLE" , "VESPERTINA" o "MATUTINA".
+
+16. PLAN: Como su nombre lo indica, en esta variable se encuentra establecido que plan maneja el centro, el cual puede ser "DIARIO(REGULAR)" o "FIN DE SEMANA".
+
+17. DEPARTAMENTAL: En esta variable se encuentra establecido el departamental que se encarga de cada uno de los establecimientos (la departamental es la entidad que se encarga de supervisar al centro educativo, de alli sale la variable de supervisor.)
 
 ### Limpieza de datos
 
