@@ -256,6 +256,7 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
 .main-container {
   max-width: 940px;
@@ -276,6 +277,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -421,6 +425,55 @@ head(db)</code></pre>
 ## 6 DIARIO(REGULAR)  ALTA VERAPAZ</code></pre>
 <p>El cual cuenta con 8143 filas y 17 columnas, las cuales son
 detalladas en el code book, ubicado en el repositorio.</p>
+<div id="diccionario-de-variables" class="section level3">
+<h3>Diccionario de Variables:</h3>
+<p>¿Que contiene el conjunto de datos?</p>
+<p>Dentro de los datos se encuentran un listado detallado de los
+establecimientos educativos del pais, cabe destacar que cada uno de
+estos conjuntos de datos se encuentran distribuidos por departamento, es
+decir que se encontraban en un conjunto los datos correspondientes al
+departamento de Guatemala, en otro conjunto de datos los
+correspondientes a Izabal, por hacer mencion y asi seguidos con cada uno
+de los 22 departamentos del pais.</p>
+<p>Cada conjunto de datos contenian las siguientes variables:</p>
+<ol style="list-style-type: decimal">
+<li><p>CODIGO: Esta es una variable de forma “chr”, en el cual se
+encuentran listados los codigos de registro de cada uno de los centros
+educativos.</p></li>
+<li><p>DISTRITO: Esta es una variable de forma “chr”, en el cual podemos
+ver como se encuentran listados los centros educativos en base al
+distrido en el que se encuentran</p></li>
+<li><p>DEPARTAMENTO: Como su nombre lo indica, esta variable muestra el
+nombre del departamento en el que se encuentra en establecimiento
+educativo.</p></li>
+<li><p>MUNICIPIO: Como su nombre lo indica, se listan de manera ordenada
+el nombre del municipio en el que se encuentran ubicados los
+establecimientos.</p></li>
+<li><p>ESTABLECIMIENTO: En esta variable se lista de manera ordenada el
+nombre del centro educativo, el nombre bajo el cual esta
+registrado.</p></li>
+<li><p>DIRECCION: En esta variable se encuentra la ubicacion fisica del
+centro estudiantil, la ubicacion en la cual se encuentra
+establecido.</p></li>
+<li><p>TELEFONO: Como su nombre lo indica, se encuentra listado el
+numero de telefono que tiene el centro educativo, en algunos datos no se
+fue proporcionado, por eso se encuentra bajo N/A.</p></li>
+<li><p>SUPERVISOR: En esta variable se encuentra el nombre de la persona
+que designada por el MINEDUC para supervisar al centro
+estudiantil.</p></li>
+<li><p>DIRECTOR: En esta variable se encuentra el nombre de la persona
+que funge como director del centro educativo, en algunos datos no se
+encuentra dicha persona, por eso se encuentra bajo N/A.</p></li>
+<li><p>NIVEL: En esta variable se encuentra el nivel educativo que
+ofrece el establecimiento, puede ser: “PRIMARIO”, “BASICO” o
+“DIVERSIFICADO”</p></li>
+<li><p>SECTOR: En esta variable se encuentra establecido el sector al
+que pertenece el centro educativo, el cual puede ser ya sea “PRIVADO” ,
+“OFICIAL” , “MUNICIPAL” O “COOPERATIVA”</p></li>
+<li><p>AREA: En esta varable se encuentra listado a que area pertenece
+el centro educativo, el cual puede ser: “RURAL” o “URBANO”</p></li>
+</ol>
+</div>
 <div id="limpieza-de-datos" class="section level3">
 <h3>Limpieza de datos</h3>
 <p>El primer dato a limpiar fue la columna telefono, la particuluridad
@@ -435,6 +488,18 @@ telefonico de 8 digitos * Verificar que sean numeros</p>
 db$TELEFONO&lt;-ifelse(nchar(db$TELEFONO)&lt;8,NA,substr(db$TELEFONO, 1, 8))</code></pre>
 <p>Tras realizar lo anterior los datos de telefono han sido
 limpiados.</p>
+<p>De igual forma, se realizo una limpieza para la columna de
+Director:</p>
+<pre class="r"><code>db[db$DIRECTOR == &quot;---&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+
+db[db$DIRECTOR == &quot;--&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+
+db[db$DIRECTOR == &quot;.&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA</code></pre>
+<p>De esta manera nos estamos asegurando de que la variable
+<em>Director</em> ya no cuenta con espacios en los que se encuentre un
+caracter diferente a la que no sea “N/A”, porque asi nos asegurabamos
+que cualquier dato que fuera diferente a NA pueda ser visto y trabajado
+de la misma forma que un NA.</p>
 </div>
 </div>
 
