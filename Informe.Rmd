@@ -49,7 +49,13 @@ Cada conjunto de datos contenian las siguientes variables:
 
 8. SUPERVISOR: En esta variable se encuentra el nombre de la persona que designada por el MINEDUC para supervisar al centro estudiantil.
 
+9. DIRECTOR: En esta variable se encuentra el nombre de la persona que funge como director del centro educativo, en algunos datos no se encuentra dicha persona, por eso se encuentra bajo N/A.
 
+10. NIVEL: En esta variable se encuentra el nivel educativo que ofrece el establecimiento, puede ser: "PRIMARIO", "BASICO" o "DIVERSIFICADO"
+
+11. SECTOR: En esta variable se encuentra establecido el sector al que pertenece el centro educativo, el cual puede ser ya sea "PRIVADO" , "OFICIAL" , "MUNICIPAL" O "COOPERATIVA"
+
+12. AREA: En esta varable se encuentra listado a que area pertenece el centro educativo, el cual puede ser: "RURAL" o "URBANO"
 
 
 
