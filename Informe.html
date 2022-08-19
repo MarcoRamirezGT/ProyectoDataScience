@@ -256,7 +256,6 @@ if (window.hljs) {
 
 
 
-
 <style type="text/css">
 .main-container {
   max-width: 940px;
@@ -277,9 +276,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -506,11 +502,12 @@ db$TELEFONO&lt;-ifelse(nchar(db$TELEFONO)&lt;8,NA,substr(db$TELEFONO, 1, 8))</co
 limpiados.</p>
 <p>De igual forma, se realizo una limpieza para la columna de
 Director:</p>
-<pre class="r"><code>db[db$DIRECTOR == &quot;---&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+<pre class="r"><code>#Reparando el director
 
-db[db$DIRECTOR == &quot;--&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
-
-db[db$DIRECTOR == &quot;.&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA</code></pre>
+ # db[db$DIRECTOR == &quot;-&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+ # db[db$DIRECTOR == &quot;--&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+ # db[db$DIRECTOR == &quot;---&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+ # db[db$DIRECTOR == &quot;----&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA</code></pre>
 <p>De esta manera nos estamos asegurando de que la variable
 <em>Director</em> ya no cuenta con espacios en los que se encuentre un
 caracter diferente a la que no sea “N/A”, porque asi nos asegurabamos
