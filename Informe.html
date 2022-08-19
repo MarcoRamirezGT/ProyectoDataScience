@@ -256,7 +256,6 @@ if (window.hljs) {
 
 
 
-
 <style type="text/css">
 .main-container {
   max-width: 940px;
@@ -277,9 +276,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -508,10 +504,33 @@ limpiados.</p>
 Director:</p>
 <pre class="r"><code>#Reparando el director
 
- # db[db$DIRECTOR == &quot;-&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
- # db[db$DIRECTOR == &quot;--&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
- # db[db$DIRECTOR == &quot;---&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
- # db[db$DIRECTOR == &quot;----&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA</code></pre>
+ 
+db&lt;-read.csv(&#39;DatosCrudos.csv&#39;)
+
+
+db[db$DIRECTOR == &quot;-&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;--&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;---&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;----&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;-----&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;-------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;--------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;---------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;----------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;-----------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;------------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;-------------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;--------------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;----------------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;---------------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;-----------------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;-------------------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;-----------------------------&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;...&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;..&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;.&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA
+db[db$DIRECTOR == &quot;0&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA</code></pre>
 <p>De esta manera nos estamos asegurando de que la variable
 <em>Director</em> ya no cuenta con espacios en los que se encuentre un
 caracter diferente a la que no sea “N/A”, porque asi nos asegurabamos
@@ -533,6 +552,11 @@ colnames(new_db)</code></pre>
 ##  [5] &quot;ESTABLECIMIENTO&quot; &quot;DIRECCION&quot;       &quot;TELEFONO&quot;        &quot;SUPERVISOR&quot;     
 ##  [9] &quot;DIRECTOR&quot;        &quot;NIVEL&quot;           &quot;SECTOR&quot;          &quot;AREA&quot;           
 ## [13] &quot;STATUS&quot;          &quot;MODALIDAD&quot;       &quot;JORNADA&quot;         &quot;PLAN&quot;</code></pre>
+<p>Ya con la base de datos limpia podes generar un nuevo CSV con los
+nuevos datos.</p>
+<pre class="r"><code>write.csv(new_db,&quot;DatosLimpios.csv&quot;, row.names = FALSE)
+DatosLimpios&lt;-read.csv(&quot;DatosLimpios.csv&quot;)
+View(DatosLimpios)</code></pre>
 </div>
 </div>
 
