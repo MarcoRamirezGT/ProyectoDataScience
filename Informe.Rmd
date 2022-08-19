@@ -134,7 +134,7 @@ colnames(new_db)
 
 ```
 
-Ya con la base de datos limpia podes generar un nuevo CSV con los nuevos datos.
+Ya con la base de datos limpia podemos generar un nuevo CSV con los nuevos datos.
 
 ```{R}
 write.csv(new_db,"DatosLimpios.csv", row.names = FALSE)

@@ -256,6 +256,7 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
 .main-container {
   max-width: 940px;
@@ -276,6 +277,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -552,11 +556,54 @@ colnames(new_db)</code></pre>
 ##  [5] &quot;ESTABLECIMIENTO&quot; &quot;DIRECCION&quot;       &quot;TELEFONO&quot;        &quot;SUPERVISOR&quot;     
 ##  [9] &quot;DIRECTOR&quot;        &quot;NIVEL&quot;           &quot;SECTOR&quot;          &quot;AREA&quot;           
 ## [13] &quot;STATUS&quot;          &quot;MODALIDAD&quot;       &quot;JORNADA&quot;         &quot;PLAN&quot;</code></pre>
-<p>Ya con la base de datos limpia podes generar un nuevo CSV con los
+<p>Ya con la base de datos limpia podemos generar un nuevo CSV con los
 nuevos datos.</p>
 <pre class="r"><code>write.csv(new_db,&quot;DatosLimpios.csv&quot;, row.names = FALSE)
 DatosLimpios&lt;-read.csv(&quot;DatosLimpios.csv&quot;)
-View(DatosLimpios)</code></pre>
+head(DatosLimpios)</code></pre>
+<pre><code>##          CODIGO DISTRITO DEPARTAMENTO MUNICIPIO
+## 1 16-01-0138-46   16-031 ALTA VERAPAZ     COBAN
+## 2 16-01-0142-46   16-005 ALTA VERAPAZ     COBAN
+## 3 16-01-0145-46   16-006 ALTA VERAPAZ     COBAN
+## 4 16-01-0150-46   16-006 ALTA VERAPAZ     COBAN
+## 5 16-01-0155-46   16-031 ALTA VERAPAZ     COBAN
+## 6 16-01-0471-46   16-031 ALTA VERAPAZ     COBAN
+##                                           ESTABLECIMIENTO
+## 1                                           COLEGIO COBAN
+## 2 INSTITUTO NORMAL MIXTO DEL NORTE &#39;EMILIO ROSALES PONCE&#39;
+## 3         INSTITUTO DE TURSMO Y AVIACON DEL NORTE I.T.A.N
+## 4        INSTITUTO INTERCULTRUAL ALTAVERAPACENCESE -IIAV-
+## 5                                  LICEO &quot;MODERNO LATINO&quot;
+## 6                       COLEGIO DE INFORMATICA &quot;CENINFAV&quot;
+##                                DIRECCION TELEFONO
+## 1 KM.2 SALIDA A SAN JUAN CHAMELCO ZONA 8 77945104
+## 2                    3A AVE 6-23 ZONA 11 79521468
+## 3                      3 AV. 5-28 ZONA 4 54641454
+## 4               3A. AVAENIDA 1-23 ZONA 4     &lt;NA&gt;
+## 5                 11 AVENIDA 5-17 ZONA 4 79522555
+## 6                     12 AV. 2-12 ZONA 1 79545566
+##                        SUPERVISOR                           DIRECTOR
+## 1 MERCEDES JOSEFINA TORRES GALVEZ          JULIO CESAR VILLELA AMADO
+## 2 WHOLFANG ALEXANDER PONCE SIERRA                               &lt;NA&gt;
+## 3                 EFRAIN CAAL CUC                 LUIS FERNANDO SOTO
+## 4                 EFRAIN CAAL CUC GUILLERMO ESTUARDO VASQUEZ MORALES
+## 5 MERCEDES JOSEFINA TORRES GALVEZ            JORGE BENEDICTO COC POP
+## 6 MERCEDES JOSEFINA TORRES GALVEZ             MARIA MAGDALENA BOL CU
+##           NIVEL  SECTOR   AREA                STATUS  MODALIDAD    JORNADA
+## 1 DIVERSIFICADO PRIVADO URBANA               ABIERTA MONOLINGUE   MATUTINA
+## 2 DIVERSIFICADO OFICIAL URBANA               ABIERTA   BILINGUE VESPERTINA
+## 3 DIVERSIFICADO PRIVADO URBANA CERRADA TEMPORALMENTE MONOLINGUE   MATUTINA
+## 4 DIVERSIFICADO PRIVADO URBANA CERRADA TEMPORALMENTE   BILINGUE      DOBLE
+## 5 DIVERSIFICADO PRIVADO URBANA               ABIERTA MONOLINGUE      DOBLE
+## 6 DIVERSIFICADO PRIVADO URBANA               ABIERTA MONOLINGUE VESPERTINA
+##              PLAN
+## 1 DIARIO(REGULAR)
+## 2 DIARIO(REGULAR)
+## 3 DIARIO(REGULAR)
+## 4   FIN DE SEMANA
+## 5   FIN DE SEMANA
+## 6 DIARIO(REGULAR)</code></pre>
+<pre class="r"><code>View(DatosLimpios)</code></pre>
 </div>
 </div>
 
