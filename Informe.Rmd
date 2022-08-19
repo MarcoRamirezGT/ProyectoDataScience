@@ -89,11 +89,45 @@ Tras realizar lo anterior los datos de telefono han sido limpiados.
 De igual forma, se realizo una limpieza para la columna de Director: 
 
 ```{r}
-db[db$DIRECTOR == "---" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+#Reparando el director
 
+db[db$DIRECTOR == "-" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
 db[db$DIRECTOR == "--" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
-
+db[db$DIRECTOR == "---" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "----" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "-----" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "-------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "--------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "---------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "----------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "-----------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "-------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "--------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "---------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "----------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "-----------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "-------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "--------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "---------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "----------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "-----------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "------------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "-------------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "--------------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "---------------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "----------------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "-----------------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "------------------------------" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA                   
+db[db$DIRECTOR == ' "" ' & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == " ' " & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == ' " ' & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "..." & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == ".." & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
 db[db$DIRECTOR == "." & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
+db[db$DIRECTOR == "0" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
 
 ```
 
