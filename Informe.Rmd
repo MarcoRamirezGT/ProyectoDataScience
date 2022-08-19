@@ -7,6 +7,8 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
 ```
 
 ## Proyecto 1
@@ -133,3 +135,10 @@ db[db$DIRECTOR == "0" & !is.na(db$DIRECTOR), ]$DIRECTOR <- NA
 
 De esta manera nos estamos asegurando de que la variable *Director* ya no cuenta con espacios en los que se encuentre un caracter diferente a la que no sea "N/A", porque asi nos asegurabamos que cualquier dato que fuera diferente a NA pueda ser visto y trabajado de la misma forma que un NA. 
 
+Y por último, se hizo una limpieza a la variable *DEPARTAMENTAL* que consistió en eliminar dicha varibale por completo porque definimos que nos brinda la misma información que la variable *DEPARTAMENTO*.
+
+```{r}
+colnames(db)
+new_db<-db%>% select (-DEPARTAMENTAL)
+colnames(new_db)
+```

@@ -516,6 +516,22 @@ db[db$DIRECTOR == &quot;.&quot; &amp; !is.na(db$DIRECTOR), ]$DIRECTOR &lt;- NA</
 caracter diferente a la que no sea “N/A”, porque asi nos asegurabamos
 que cualquier dato que fuera diferente a NA pueda ser visto y trabajado
 de la misma forma que un NA.</p>
+<p>Y por último, se hizo una limpieza a la variable
+<em>DEPARTAMENTAL</em> que consistió en eliminar dicha varibale por
+completo porque definimos que nos brinda la misma información que la
+variable <em>DEPARTAMENTO</em>.</p>
+<pre class="r"><code>colnames(db)</code></pre>
+<pre><code>##  [1] &quot;CODIGO&quot;          &quot;DISTRITO&quot;        &quot;DEPARTAMENTO&quot;    &quot;MUNICIPIO&quot;      
+##  [5] &quot;ESTABLECIMIENTO&quot; &quot;DIRECCION&quot;       &quot;TELEFONO&quot;        &quot;SUPERVISOR&quot;     
+##  [9] &quot;DIRECTOR&quot;        &quot;NIVEL&quot;           &quot;SECTOR&quot;          &quot;AREA&quot;           
+## [13] &quot;STATUS&quot;          &quot;MODALIDAD&quot;       &quot;JORNADA&quot;         &quot;PLAN&quot;           
+## [17] &quot;DEPARTAMENTAL&quot;</code></pre>
+<pre class="r"><code>new_db&lt;-db%&gt;% select (-DEPARTAMENTAL)
+colnames(new_db)</code></pre>
+<pre><code>##  [1] &quot;CODIGO&quot;          &quot;DISTRITO&quot;        &quot;DEPARTAMENTO&quot;    &quot;MUNICIPIO&quot;      
+##  [5] &quot;ESTABLECIMIENTO&quot; &quot;DIRECCION&quot;       &quot;TELEFONO&quot;        &quot;SUPERVISOR&quot;     
+##  [9] &quot;DIRECTOR&quot;        &quot;NIVEL&quot;           &quot;SECTOR&quot;          &quot;AREA&quot;           
+## [13] &quot;STATUS&quot;          &quot;MODALIDAD&quot;       &quot;JORNADA&quot;         &quot;PLAN&quot;</code></pre>
 </div>
 </div>
 
