@@ -109,4 +109,13 @@ Y por último, se hizo una limpieza a la variable *DEPARTAMENTAL* que consistió
 colnames(db)
 new_db<-db%>% select (-DEPARTAMENTAL)
 colnames(new_db)
+
+```
+
+Ya con la base de datos limpia podes generar un nuevo CSV con los nuevos datos.
+
+```{R}
+write.csv(new_db,"DatosLimpios.csv", row.names = FALSE)
+DatosLimpios<-read.csv("DatosLimpios.csv")
+View(DatosLimpios)
 ```
